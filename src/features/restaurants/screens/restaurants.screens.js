@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { View, FlatList } from "react-native";
 import styled from "styled-components";
 import { Searchbar } from "react-native-paper";
 import { RestaurantInfoCard } from "../components/restaurant-info-card.component";
 import { SafeAreCustomView } from "../../../components/utility/safe-area.component";
+import { RestaurantsContext } from "../../../services/restaurant/restaurants.context";
 
 const Container = styled(View)`
   padding: ${(props) => props.theme.space[3]};
