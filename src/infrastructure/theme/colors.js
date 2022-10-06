@@ -8,4 +8,8 @@ export const colors = {
     primary: "#B9FFF8",
   },
   error: "red",
+  text: {
+    primary: "black",
+    error: "red",
+  },
 };

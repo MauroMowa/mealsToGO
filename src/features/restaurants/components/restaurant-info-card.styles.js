@@ -17,3 +17,7 @@ export const InfoContainer = styled.View`
 export const Rating = styled.View`
   flex-direction: row;
 `;
+
+export const CustomCard = styled(Card)`
+  margin-bottom: ${(props) => props.theme.space[3]};
+`;
