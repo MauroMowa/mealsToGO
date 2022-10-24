@@ -21,3 +21,8 @@ export const Rating = styled.View`
 export const CustomCard = styled(Card)`
   margin-bottom: ${(props) => props.theme.space[3]};
 `;
+
+export const Icon = styled.Image`
+  width: 15px;
+  height: 15px;
+`;

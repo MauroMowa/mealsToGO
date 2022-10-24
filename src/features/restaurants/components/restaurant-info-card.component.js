@@ -9,6 +9,7 @@ import {
   InfoContainer,
   Rating,
   CustomCard,
+  Icon,
 } from "./restaurant-info-card.styles";
 
 export const RestaurantInfoCard = ({ restaurant }) => {
@@ -19,10 +20,12 @@ export const RestaurantInfoCard = ({ restaurant }) => {
     isOpenNow,
     icon,
     photos,
-    address,
+    vicinity,
   } = restaurant.item;
 
-  const ratingArray = Array.from(new Array(Math.floor(5)));
+  const ratingArray = Array.from(
+    new Array(Math.floor(rating > 0 ? rating : 0))
+  );
 
   return (
     <CustomCard elevation={5}>
@@ -38,9 +41,9 @@ export const RestaurantInfoCard = ({ restaurant }) => {
             <Text variant="error">Cerrado temporalmente</Text>
           )}
           {isOpenNow && <SvgXml xml={open} width={20} height={20} />}
-          {icon && <SvgXml xml={icon} width={20} height={20} />}
+          {icon && <Icon source={{ uri: icon }} />}
         </IconContainer>
-        <Text variant="caption">{address}</Text>
+        <Text variant="caption">{vicinity}</Text>
       </InfoContainer>
       <Cover source={{ uri: photos && photos[0] }} />
     </CustomCard>
