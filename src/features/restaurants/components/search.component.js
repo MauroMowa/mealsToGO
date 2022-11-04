@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import { View } from "react-native";
 import styled from "styled-components";
 import { Searchbar } from "react-native-paper";
@@ -15,10 +15,6 @@ export const Search = () => {
   const changeText = (e) => {
     setSearchQuery(e);
   };
-
-  useEffect(() => {
-    search(searchQuery);
-  }, []);
 
   return (
     <Container>
