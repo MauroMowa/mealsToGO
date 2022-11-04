@@ -1,14 +1,11 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import { View, FlatList } from "react-native";
 import styled from "styled-components";
-import { ActivityIndicator, Searchbar } from "react-native-paper";
+import { ActivityIndicator } from "react-native-paper";
 import { RestaurantInfoCard } from "../components/restaurant-info-card.component";
 import { SafeAreCustomView } from "../../../components/utility/safe-area.component";
 import { RestaurantsContext } from "../../../services/restaurant/restaurants.context";
-
-const Container = styled(View)`
-  padding: ${(props) => props.theme.space[3]};
-`;
+import { Search } from "../components/search.component";
 
 const Loader = styled(ActivityIndicator)`
   margin-left: -25px;
@@ -21,22 +18,11 @@ const LoaderContainer = styled(View)`
 `;
 
 export const RestaurantsScreen = () => {
-  const [searchQuery, setSearchQuery] = useState("");
   const { restaurants, isLoading, error } = useContext(RestaurantsContext);
-
-  const changeText = (e) => {
-    setSearchQuery(e);
-  };
 
   return (
     <SafeAreCustomView>
-      <Container>
-        <Searchbar
-          placeholder="busqueda"
-          onChangeText={changeText}
-          value={searchQuery}
-        />
-      </Container>
+      <Search />
       {isLoading ? (
         <LoaderContainer>
           <Loader size={50} animating={true} />

@@ -33,8 +33,15 @@ export const RestaurantInfoCard = ({ restaurant }) => {
         <Text variant="label">{name}</Text>
         <IconContainer>
           <Rating>
-            {ratingArray.map(() => {
-              return <SvgXml xml={star} width={20} height={20} />;
+            {ratingArray.map((_, index) => {
+              return (
+                <SvgXml
+                  key={`star-${name}-${index}`}
+                  xml={star}
+                  width={20}
+                  height={20}
+                />
+              );
             })}
           </Rating>
           {isClosedTemporarily && (
